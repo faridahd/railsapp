@@ -1,0 +1,36 @@
+<%= form_with(model: listitem) do |form| %>
+  <% if listitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listitem.errors.count, "error") %> prohibited this listitem from being saved:</h2>
+
+      <ul>
+        <% listitem.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :item_name %>
+    <%= form.text_field :item_name, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :item_count %>
+    <%= form.number_field :item_count, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :item_description %>
+    <%= form.text_field :item_description, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.hidden_field :user_id, id: :friend_user_id, class:"form-control", value:current_user.id %>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

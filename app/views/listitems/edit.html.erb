@@ -1,0 +1,7 @@
+<h1>Editing Listitem</h1>
+<br/>
+<%= render 'form', listitem: @listitem %>
+<br />
+<%= link_to 'Show ', @listitem, class:"btn btn-secondary" %>
+<%= link_to 'Delete', @listitem, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<%= link_to 'Back', listitems_path, class:"btn btn-secondary", style:"width:70px;" %>

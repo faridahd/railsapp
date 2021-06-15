@@ -1,0 +1,31 @@
+<% if user_signed_in?%>
+<h1>List Items</h1>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Item name</th>
+      <th>Item count</th>
+      <th>Item description</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listitems.each do |listitem| %>
+      <% if listitem.user == current_user %>
+        <tr>
+          <td><%= link_to listitem.item_name, listitem %></td>
+          <td><%= listitem.item_count %></td>
+          <td><%= listitem.item_description %></td>
+          <td><%= link_to 'Delete', listitem, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New Listitem', new_listitem_path, class:"btn btn-secondary" %>
+<% else %>
+<h1 style="text-align:center"> Page Not Found </h1>
+<% end %>

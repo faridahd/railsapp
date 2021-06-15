@@ -1,0 +1,10 @@
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold"><%= @listitem.item_name %></h1>
+    <p class="col-md-8 fs-4">Count: <%= @listitem.item_count %></p>
+    <p class="col-md-8 fs-4">Description: <%= @listitem.item_description %></p>
+    <%= link_to 'Edit', edit_listitem_path(@listitem), class:"btn btn-secondary" %>
+    <%= link_to 'Delete', @listitem, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+    <%= link_to 'Back', listitems_path, class:"btn btn-dark" %>
+  </div>
+</div>
